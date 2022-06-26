@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Projeto Labefy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+link do surge: https://parallel-desk.surge.sh/
 
-## Available Scripts
+**Proposta:**  Montar uma integração com a API Labefy, que permite o gerenciamento básico de playlists de músicas.
 
-In the project directory, you can run:
+## Sobre o projeto
 
-### `npm start`
+O projeto foi feito utilizando apenas React e estilizado com styled-components. Nas últimas horas da confecção do projeto utilizei uma framework chamada Materialize (https://materializecss.com/) para a criação de um controlador de áudio, porém desisti e mantive apenas a estilização dos inputs, fica para um próximo projeto. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funcionalidades/não funcionalidades do projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Barra de navegação esquerda
+#### Funciona:<br>
+Botão inicial renderiza a tela inicial do site.
+Botão criar playlist abre uma área para o usuário inserir o nome da playlist que deseja criar e um botão para cria-lá.
+Playlists renderizadas após serem criadas, com um botão para remover-las. Quando clicado em cima das playlists é renderizado na tela da direita os detalhes desta playlist,  como suas músicas e a possibilidade de ouvi-lás.
 
-### `npm test`
+#### Não funciona:<br>
+Botão buscar não teve sua função implementada.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Tela principal (direita)
 
-### `npm run build`
+#### Pagina inicial<br>
+#### Funciona:<br>
+Botão play (verde) redireciona para a playlist do youtube em questão (sertanejo 2022)
+Dentro de cada playlist no canto inferior ao passar o mouse aparece um botão de play, ao clicar em cima de qualquer parte do card é redirecionado para a playlist em questão no youtube.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Página das playlists<br>
+#### Funciona:<br>
+Ao clicar em cima das músicas ela toca no controlador de áudio fixado no footer da pagina, quando clicamos em outra música, esta agora passa a tocar no mesmo controlador.
+Botão para remover cada música no canto direito delas.
+Local para adicionar uma música, com 3 inputs e um botão para adicionar, quando adicionadas são renderizadas na tela automaticamente. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prints do labefy
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p>Tela inicial</p>
+<img src="https://user-images.githubusercontent.com/100432523/175800707-3c2830ab-8ec4-46fc-9c6f-19d037d1a51b.png" alt="Tela inicial" width="350px" height="200px"/>
 
-### `npm run eject`
+<p>Tela detalhes da playlist</p>
+<img src="https://user-images.githubusercontent.com/100432523/175800708-a77bbecc-7588-4373-92f5-64726c186525.png" alt="Tela inicial" width="350px" height="200px"/>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p></p>
+<img src="https://user-images.githubusercontent.com/100432523/175800709-54b05033-8e00-4618-8984-6b5e481801ad.png" alt="Tela inicial" width="350px" height="200px"/>
