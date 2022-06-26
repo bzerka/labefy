@@ -2,37 +2,44 @@ import React from "react";
 import "./App.css";
 import styled from "styled-components";
 import Menu from "./Components/Menu";
+import Inicio from "./Components/Inicio";
 import axios from "axios";
 import ListaPlaylists from "./Components/ListaPlaylists";
 import AbrirPlaylist from "./Components/AbrirPlaylist";
 
 const Container = styled.div`
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   width: 100%;
-  border: 1px solid black;
   display: flex;
+  position: relative;
 `;
 
 const ContainerEsquerda = styled.div`
+  position: fixed;
   width: 18%;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  height: 100%;
 `;
 
 const ContainerMeio = styled.div`
   width: 82%;
+  height: 100%;
   border: 1px solid black;
+  margin-left: 18%;
 `;
 
 const ContainerMenu = styled.div`
-  height: 30%;
-  border: 1px solid red;
+  margin-bottom: 2%;
 `;
 
 const ContainerPlaylists = styled.div`
+  position: relative;
   height: 70%;
-  border: 1px solid red;
 `;
 
 class App extends React.Component {
@@ -40,7 +47,7 @@ class App extends React.Component {
     playlists: [],
     playlistDetails: [],
     abrirPlaylist: "",
-    tela: "",
+    tela: "inicio",
     playlistClicada: [],
   };
 
@@ -108,23 +115,27 @@ class App extends React.Component {
         console.log(error.response.data.message);
       });
 
-    this.setState({ tela: "abrirplaylist", playlistClicada: playlist });
+      this.setState({ tela: "abrirplaylist", playlistClicada: playlist});
   };
+
+  mudarTela = (mudar) => {
+    this.setState({ tela: mudar})
+  }
 
   render() {
     return (
       <Container>
         <ContainerEsquerda>
           <ContainerMenu>
-            <Menu getAllPlaylists={this.getAllPlaylists} />
+            <Menu mudarTela={this.mudarTela} getAllPlaylists={this.getAllPlaylists} />
           </ContainerMenu>
+          <hr size="1" width="92%" color="grey"></hr>
           <ContainerPlaylists>
             <ListaPlaylists
               abrirPlaylist={this.state.abrirPlaylist}
               getPlaylistTracks={this.getPlaylistTracks}
               deletePlaylist={this.deletePlaylist}
               playlists={this.state.playlists}
-              mudarTela={this.mudarTela}
             />
           </ContainerPlaylists>
         </ContainerEsquerda>
@@ -135,6 +146,9 @@ class App extends React.Component {
               getPlaylistTracks={this.getPlaylistTracks}
               playlistDetails={this.state.playlistDetails}
             />
+          )}
+          {this.state.tela === "inicio" && (
+            <Inicio />
           )}
         </ContainerMeio>
       </Container>

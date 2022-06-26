@@ -1,26 +1,38 @@
 import axios from "axios";
 import React from "react";
 import styled from "styled-components";
+import iconefechar from "../img/iconefechar.png";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const Titulo = styled.div`
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  margin-top: 5px;
+`
 
 const Playlist = styled.div`
   display: flex;
   align-items: center;
-  flex-direction: column;
-  border: 1px solid black;
-  margin: 10px;
+  justify-content: space-between;
+  margin: 12px 0;
+  color: #a5a5a5;
+  &:hover {
+    cursor: pointer;
+    color: white;
+  }
 `;
 
-const Button = styled.button`
-  width: 80%;
-`;
-
-const MainContainer = styled.div`
-  position: absolute;
-  left: 20%;
+const IconeFechar = styled.img`
+  width: 6%;
+  margin-right: 8%;
 `;
 
 class ListaPlaylists extends React.Component {
-
   onChangeInputName = (e) => {
     this.setState({ inputName: e.target.value });
   };
@@ -34,25 +46,33 @@ class ListaPlaylists extends React.Component {
   };
 
   abrirTela = (playlist) => {
-    return <p>abcd {playlist.name}</p>
-  }
+    return <p>abcd {playlist.name}</p>;
+  };
 
   render() {
     const mostrarPlaylists = this.props.playlists.map((playlist) => {
       return (
-        <Playlist key={playlist.id}>
+        <Playlist
+          key={playlist.id}
+          onClick={() => this.props.getPlaylistTracks(playlist)}
+        >
           <p>{playlist.name}</p>
-          <Button onClick={() => this.props.getPlaylistTracks(playlist)}>
-            Abrir playlist
-          </Button>
-          <Button onClick={() => this.props.deletePlaylist(playlist.id)}>
-            X
-          </Button>
+          <IconeFechar
+            src={iconefechar}
+            onClick={() => this.props.deletePlaylist(playlist.id)}
+          />
         </Playlist>
       );
     });
 
-    return <div>{mostrarPlaylists}</div>;
+    return (
+      <Container>
+        <Titulo>
+          <p>Suas playlists</p>
+        </Titulo>
+        {mostrarPlaylists}
+      </Container>
+    );
   }
 }
 
