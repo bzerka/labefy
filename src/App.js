@@ -6,6 +6,7 @@ import Inicio from "./Components/Inicio";
 import axios from "axios";
 import ListaPlaylists from "./Components/ListaPlaylists";
 import AbrirPlaylist from "./Components/AbrirPlaylist";
+import teardrops from "./songs/teardrops.mp3"
 
 const Container = styled.div`
   height: 100%;
@@ -45,7 +46,11 @@ const ContainerPlaylists = styled.div`
 class App extends React.Component {
   state = {
     playlists: [],
-    playlistDetails: [],
+    playlistDetails: [{
+      name: "Tear drops from my guitar",
+      artist: "Taylor swift",
+      url: {teardrops},
+    }],
     abrirPlaylist: "",
     tela: "inicio",
     playlistClicada: [],

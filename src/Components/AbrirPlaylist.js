@@ -4,6 +4,7 @@ import styled from "styled-components";
 import playlistfoto from "../img/playlistfoto.png";
 import iconefechar from "../img/iconefechar.png";
 import iconeadicionar from "../img/iconeadicionar.png";
+import teardrops from "../songs/teardrops.mp3"
 
 const Container = styled.div`
   height: 100%;
@@ -178,10 +179,8 @@ class AbrirPlaylist extends React.Component {
     inputArtist: "",
     inputUrl: "",
     telaAdicionarMusica: false,
-    musicaTocando: false,
     musicaAtual: "",
     bandaAtual: "",
-    indexAtual: "",
   };
 
   onChangeInputName = (e) => {
@@ -239,12 +238,18 @@ class AbrirPlaylist extends React.Component {
 
     playlistTracks
       .then((response) => {
+        if(this.state.musicaAtual === musicas.name) {
+          this.setState({ musicaAtual: "", bandaAtual: ""})
+          const audio = document.querySelector("audio");
+          audio.src = ""
+        }
         alert("Musica deletada com sucesso.");
         this.props.getPlaylistTracks(this.props.playlistClicada);
       })
       .catch((error) => {
         console.log(error.response.data.message);
       });
+
   };
 
   aparecerTelaAdicionarMusica = () => {
