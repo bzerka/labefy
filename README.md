@@ -42,3 +42,10 @@ Local para adicionar uma música, com 3 inputs e um botão para adicionar, quand
 
 <p></p>
 <img src="https://user-images.githubusercontent.com/100432523/175800709-54b05033-8e00-4618-8984-6b5e481801ad.png" alt="Tela inicial" width="350px" height="200px"/>
+
+Caso encontre esse warning:<br>
+Mixed Content: The page at '<URL>' was loaded over HTTPS, but requested an insecure audio file '<URL>'. This content should also be served over HTTPS.<br>
+É porque as músicas tocadas possuem links http, por isso precisará permitir o navegador a mostrar conteúdo não seguro.
+  
+ <p>Siga esses passos (no caso do chrome) para resolver.</p>
+ <img src="https://user-images.githubusercontent.com/100432523/175832520-c2167f87-459d-45f4-998c-418f3a7a488a.png" alt="Tela inicial" width="350px" height="200px"/>
