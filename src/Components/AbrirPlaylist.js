@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-import "./AbrirPlaylist.css";
 import styled from "styled-components";
 import playlistfoto from "../img/playlistfoto.png";
 import iconefechar from "../img/iconefechar.png";
@@ -152,7 +151,7 @@ const ContainerAudioControle = styled.div`
   bottom: 0;
   width: 82%;
   height: 80px;
-  box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.80);
+  box-shadow: 5px 5px 8px 5px rgba(0, 0, 0, 0.8);
 `;
 
 const AudioTexto = styled.div`
@@ -167,6 +166,12 @@ const AudioControl = styled.div`
   width: 70%;
 `;
 
+const Audio = styled.audio`
+  filter: sepia(20%) saturate(70%) grayscale(1) contrast(90%) invert(90%);
+    width: 380px;
+    height: 35px;
+`
+
 class AbrirPlaylist extends React.Component {
   state = {
     inputName: "",
@@ -176,7 +181,7 @@ class AbrirPlaylist extends React.Component {
     musicaTocando: false,
     musicaAtual: "",
     bandaAtual: "",
-    indexAtual: ""
+    indexAtual: "",
   };
 
   onChangeInputName = (e) => {
@@ -246,12 +251,12 @@ class AbrirPlaylist extends React.Component {
     this.setState({ telaAdicionarMusica: !this.state.telaAdicionarMusica });
   };
 
-  audioSrc = (musicas) => {
-    const audio = document.querySelector("audio");
-    audio.src = musicas.url;
-    this.setState({musicaAtual: musicas.name, bandaAtual: musicas.artist})
-  };
-  
+    audioSrc = (musicas) => {
+      const audio = document.querySelector("audio");
+      audio.src = musicas.url;
+      this.setState({ musicaAtual: musicas.name, bandaAtual: musicas.artist });
+    };
+
   render() {
     let index = 1;
     const musicasPlaylist = this.props.playlistDetails.map((musicas) => {
@@ -336,7 +341,7 @@ class AbrirPlaylist extends React.Component {
             <NomeArtista>{this.state.bandaAtual}</NomeArtista>
           </AudioTexto>
           <AudioControl>
-            <audio className="audio" autoPlay controls />
+            <Audio autoPlay controls />
           </AudioControl>
         </ContainerAudioControle>
       </Container>

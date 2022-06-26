@@ -107,9 +107,7 @@ class App extends React.Component {
 
     playlistTracks
       .then((response) => {
-        console.log(response);
         this.setState({ playlistDetails: response.data.result.tracks });
-        console.log(this.state.playlistDetails);
       })
       .catch((error) => {
         console.log(error.response.data.message);

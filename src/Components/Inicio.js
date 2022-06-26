@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 
 const ContainerTopPlaylist = styled.div`
-  height: 344px;
+  height: 351px;
   display: flex;
   background-color: black;
   padding: 15px 15px 15px 15px;
