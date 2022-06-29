@@ -1,6 +1,6 @@
 # Projeto Labefy
 
-link do surge: https://closed-sticks.surge.sh/
+link do surge: https://quiet-arm.surge.sh/
 
 **Proposta:**  Montar uma integração com a API Labefy, que permite o gerenciamento básico de playlists de músicas.
 
